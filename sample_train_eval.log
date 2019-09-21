@@ -1,0 +1,107 @@
+{'gpu': '5,6,8', 'num_workers': 20, 'voc12_root': '/home/lishixuan001/ICSI/datasets/PASCAL/VOCdevkit/VOC2012', 'train_list': 'voc12/train_aug.txt', 'val_list': 'voc12/val.txt', 'infer_list': 'voc12/train.txt', 'chainer_eval_set': 'train', 'cam_network': 'net.resnet50_cam', 'cam_crop_size': 512, 'cam_batch_size': 16, 'cam_num_epoches': 5, 'cam_learning_rate': 0.1, 'cam_weight_decay': 0.0001, 'cam_eval_thres': 0.15, 'cam_scales': (1.0, 0.5, 1.5, 2.0), 'conf_fg_thres': 0.3, 'conf_bg_thres': 0.05, 'irn_network': 'net.resnet50_irn', 'irn_crop_size': 512, 'irn_batch_size': 16, 'irn_num_epoches': 3, 'irn_learning_rate': 0.1, 'irn_weight_decay': 0.0001, 'beta': 10, 'exp_times': 8, 'ins_seg_bg_thres': 0.25, 'sem_seg_bg_thres': 0.25, 'log_name': 'sample_train_eval', 'cam_weights_name': 'sess/res50_cam.pth', 'irn_weights_name': 'sess/res50_irn.pth', 'cam_out_dir': 'result/cam', 'ir_label_out_dir': 'result/ir_label', 'sem_seg_out_dir': 'result/sem_seg', 'ins_seg_out_dir': 'result/ins_seg', 'train_cam_pass': True, 'make_cam_pass': True, 'eval_cam_pass': True, 'cam_to_ir_label_pass': True, 'train_irn_pass': True, 'make_ins_seg_pass': True, 'eval_ins_seg_pass': True, 'make_sem_seg_pass': True, 'eval_sem_seg_pass': True}
+Start Train Cam...
+step.train_cam: Thu Aug 15 17:05:17 2019
+Epoch 1/5
+step:    0/ 3305 loss:0.6864 imps:1.2 lr: 0.1000 etc:Fri Aug 16 05:41:34 2019
+step:  100/ 3305 loss:0.1828 imps:48.0 lr: 0.0973 etc:Thu Aug 15 17:23:44 2019
+step:  200/ 3305 loss:0.1059 imps:60.3 lr: 0.0945 etc:Thu Aug 15 17:19:58 2019
+step:  300/ 3305 loss:0.0973 imps:65.6 lr: 0.0918 etc:Thu Aug 15 17:18:48 2019
+step:  400/ 3305 loss:0.0914 imps:68.6 lr: 0.0890 etc:Thu Aug 15 17:18:12 2019
+step:  500/ 3305 loss:0.0881 imps:70.2 lr: 0.0863 etc:Thu Aug 15 17:17:55 2019
+step:  600/ 3305 loss:0.0797 imps:71.8 lr: 0.0835 etc:Thu Aug 15 17:17:39 2019
+validating ... loss: 0.0712
+Epoch 2/5
+step:  700/ 3305 loss:0.0791 imps:55.2 lr: 0.0807 etc:Thu Aug 15 17:18:41 2019
+step:  800/ 3305 loss:0.0749 imps:70.5 lr: 0.0779 etc:Thu Aug 15 17:18:25 2019
+step:  900/ 3305 loss:0.0759 imps:74.4 lr: 0.0751 etc:Thu Aug 15 17:18:10 2019
+step: 1000/ 3305 loss:0.0699 imps:75.3 lr: 0.0723 etc:Thu Aug 15 17:18:02 2019
+step: 1100/ 3305 loss:0.0682 imps:76.6 lr: 0.0695 etc:Thu Aug 15 17:17:52 2019
+step: 1200/ 3305 loss:0.0649 imps:77.0 lr: 0.0666 etc:Thu Aug 15 17:17:45 2019
+step: 1300/ 3305 loss:0.0659 imps:78.0 lr: 0.0638 etc:Thu Aug 15 17:17:36 2019
+validating ... loss: 0.0587
+Epoch 3/5
+step: 1400/ 3305 loss:0.0601 imps:64.6 lr: 0.0609 etc:Thu Aug 15 17:18:09 2019
+step: 1500/ 3305 loss:0.0593 imps:73.2 lr: 0.0580 etc:Thu Aug 15 17:18:01 2019
+step: 1600/ 3305 loss:0.0562 imps:75.6 lr: 0.0551 etc:Thu Aug 15 17:17:55 2019
+step: 1700/ 3305 loss:0.0545 imps:76.9 lr: 0.0522 etc:Thu Aug 15 17:17:49 2019
+step: 1800/ 3305 loss:0.0575 imps:77.8 lr: 0.0493 etc:Thu Aug 15 17:17:43 2019
+step: 1900/ 3305 loss:0.0579 imps:78.2 lr: 0.0463 etc:Thu Aug 15 17:17:39 2019
+validating ... loss: 0.0535
+Epoch 4/5
+step: 2000/ 3305 loss:0.0543 imps:41.1 lr: 0.0433 etc:Thu Aug 15 17:18:00 2019
+step: 2100/ 3305 loss:0.0506 imps:70.5 lr: 0.0403 etc:Thu Aug 15 17:17:55 2019
+step: 2200/ 3305 loss:0.0472 imps:74.7 lr: 0.0373 etc:Thu Aug 15 17:17:51 2019
+step: 2300/ 3305 loss:0.0463 imps:77.4 lr: 0.0343 etc:Thu Aug 15 17:17:46 2019
+step: 2400/ 3305 loss:0.0490 imps:78.5 lr: 0.0312 etc:Thu Aug 15 17:17:42 2019
+step: 2500/ 3305 loss:0.0470 imps:79.1 lr: 0.0281 etc:Thu Aug 15 17:17:38 2019
+step: 2600/ 3305 loss:0.0450 imps:79.6 lr: 0.0249 etc:Thu Aug 15 17:17:34 2019
+validating ... loss: 0.0522
+Epoch 5/5
+step: 2700/ 3305 loss:0.0430 imps:62.9 lr: 0.0217 etc:Thu Aug 15 17:17:50 2019
+step: 2800/ 3305 loss:0.0411 imps:73.7 lr: 0.0184 etc:Thu Aug 15 17:17:46 2019
+step: 2900/ 3305 loss:0.0413 imps:75.7 lr: 0.0151 etc:Thu Aug 15 17:17:44 2019
+step: 3000/ 3305 loss:0.0416 imps:77.0 lr: 0.0117 etc:Thu Aug 15 17:17:41 2019
+step: 3100/ 3305 loss:0.0368 imps:77.6 lr: 0.0082 etc:Thu Aug 15 17:17:38 2019
+step: 3200/ 3305 loss:0.0380 imps:77.7 lr: 0.0045 etc:Thu Aug 15 17:17:36 2019
+step: 3300/ 3305 loss:0.0383 imps:79.1 lr: 0.0003 etc:Thu Aug 15 17:17:33 2019
+validating ... loss: 0.0497
+Start Make Cam...
+step.make_cam: Thu Aug 15 17:17:46 2019
+[ ]
+Start Eval Cam...
+step.eval_cam: Thu Aug 15 17:27:44 2019
+{'iou': array([0.7973776 , 0.43733539, 0.2908366 , 0.44988378, 0.36547045,
+       0.48586961, 0.6176211 , 0.54545372, 0.48283211, 0.29053487,
+       0.58164112, 0.40712436, 0.48037899, 0.50173158, 0.61544126,
+       0.54197587, 0.43445439, 0.62697067, 0.43988184, 0.50793644,
+       0.46164588]), 'miou': 0.4934475064223112}
+Start Cam To Ir Label...
+step.cam_to_ir_label: Thu Aug 15 17:28:13 2019
+[ ]
+Start Train IRN...
+step.train_irn: Thu Aug 15 18:02:21 2019
+Epoch 1/3
+step:    0/ 1983 loss:0.8311 0.5949 4.0670 0.1908 imps:1.3 lr: 0.1000 etc:Fri Aug 16 00:45:43 2019
+step:  100/ 1983 loss:0.5087 0.4459 3.8574 0.1165 imps:22.5 lr: 0.0954 etc:Thu Aug 15 18:25:46 2019
+step:  200/ 1983 loss:0.4160 0.3654 3.5913 0.1519 imps:26.9 lr: 0.0909 etc:Thu Aug 15 18:21:57 2019
+step:  300/ 1983 loss:0.3979 0.3479 3.4189 0.1912 imps:28.6 lr: 0.0863 etc:Thu Aug 15 18:20:49 2019
+step:  400/ 1983 loss:0.3952 0.3485 3.2058 0.2194 imps:29.6 lr: 0.0816 etc:Thu Aug 15 18:20:14 2019
+step:  500/ 1983 loss:0.3880 0.3401 3.1006 0.2278 imps:29.9 lr: 0.0770 etc:Thu Aug 15 18:20:01 2019
+step:  600/ 1983 loss:0.3948 0.3481 3.0654 0.2166 imps:30.3 lr: 0.0723 etc:Thu Aug 15 18:19:49 2019
+Epoch 2/3
+step:  700/ 1983 loss:0.3827 0.3314 3.0723 0.2101 imps:21.7 lr: 0.0676 etc:Thu Aug 15 18:20:00 2019
+step:  800/ 1983 loss:0.3742 0.3282 3.0067 0.2161 imps:28.8 lr: 0.0628 etc:Thu Aug 15 18:19:48 2019
+step:  900/ 1983 loss:0.3780 0.3333 3.0168 0.2173 imps:30.5 lr: 0.0580 etc:Thu Aug 15 18:19:38 2019
+step: 1000/ 1983 loss:0.3734 0.3225 2.9780 0.2146 imps:31.0 lr: 0.0532 etc:Thu Aug 15 18:19:32 2019
+step: 1100/ 1983 loss:0.3709 0.3281 2.9381 0.2196 imps:31.6 lr: 0.0483 etc:Thu Aug 15 18:19:24 2019
+step: 1200/ 1983 loss:0.3653 0.3203 2.9378 0.2025 imps:31.8 lr: 0.0433 etc:Thu Aug 15 18:19:19 2019
+step: 1300/ 1983 loss:0.3625 0.3156 2.9178 0.1922 imps:32.2 lr: 0.0383 etc:Thu Aug 15 18:19:12 2019
+Epoch 3/3
+step: 1400/ 1983 loss:0.3658 0.3152 2.9201 0.2019 imps:26.0 lr: 0.0332 etc:Thu Aug 15 18:19:22 2019
+step: 1500/ 1983 loss:0.3628 0.3250 2.9093 0.1968 imps:29.4 lr: 0.0281 etc:Thu Aug 15 18:19:18 2019
+step: 1600/ 1983 loss:0.3645 0.3177 2.8660 0.2007 imps:30.3 lr: 0.0228 etc:Thu Aug 15 18:19:17 2019
+step: 1700/ 1983 loss:0.3615 0.3144 2.8795 0.2050 imps:30.9 lr: 0.0173 etc:Thu Aug 15 18:19:14 2019
+step: 1800/ 1983 loss:0.3629 0.3215 2.8660 0.1995 imps:31.3 lr: 0.0117 etc:Thu Aug 15 18:19:11 2019
+step: 1900/ 1983 loss:0.3601 0.3132 2.8720 0.1997 imps:31.6 lr: 0.0057 etc:Thu Aug 15 18:19:09 2019
+Start Make Ins Seg...
+step.make_ins_seg_labels: Thu Aug 15 18:19:08 2019
+[ ]
+Start Eval Ins Seg...
+step.eval_ins_seg: Thu Aug 15 18:52:57 2019
+0.5iou: {'ap': array([3.06771788e-01, 1.56445557e-04, 5.60235373e-01, 3.46333088e-01,
+       1.42834409e-01, 6.03571593e-01, 4.00573722e-01, 6.30327642e-01,
+       4.10316982e-02, 5.07013873e-01, 1.99973690e-01, 5.61078868e-01,
+       4.84692580e-01, 5.20336382e-01, 2.16222051e-01, 7.96002822e-02,
+       3.38871473e-01, 3.32131408e-01, 4.83262358e-01, 5.02654868e-01]), 'map': 0.3628836795331919}
+Start Make Sem Seg...
+step.make_sem_seg_labels: Thu Aug 15 18:53:42 2019
+[]
+Start Eval Sem Seg...
+step.eval_sem_seg: Thu Aug 15 19:23:28 2019
+0.06711904150369474 0.04900236111391654
+0.1488288906675567 0.19292823948286733
+{'iou': array([0.8838786 , 0.68241815, 0.36148824, 0.78872548, 0.62135584,
+       0.64889016, 0.79717561, 0.69957024, 0.77747003, 0.3605905 ,
+       0.81147269, 0.44448026, 0.75477212, 0.78530252, 0.78189   ,
+       0.70485894, 0.4960065 , 0.83166334, 0.58985823, 0.63853612,
+       0.58833242]), 'miou': 0.6689874283035195}

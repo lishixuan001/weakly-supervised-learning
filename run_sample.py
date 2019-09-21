@@ -7,9 +7,11 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
 
-    # Environment
+    # Environmen
+    parser.add_argument("--gpu", default="0", type=str)
     parser.add_argument("--num_workers", default=os.cpu_count()//2, type=int)
-    parser.add_argument("--voc12_root", required=True, type=str,
+    parser.add_argument("--voc12_root", default="/home/lishixuan001/ICSI/datasets/PASCAL/VOCdevkit/VOC2012", 
+                        type=str,
                         help="Path to VOC 2012 Devkit, must contain ./JPEGImages as subdirectory.")
 
     # Dataset
@@ -38,7 +40,7 @@ if __name__ == '__main__':
     # Inter-pixel Relation Network (IRNet)
     parser.add_argument("--irn_network", default="net.resnet50_irn", type=str)
     parser.add_argument("--irn_crop_size", default=512, type=int)
-    parser.add_argument("--irn_batch_size", default=32, type=int)
+    parser.add_argument("--irn_batch_size", default=16, type=int)
     parser.add_argument("--irn_num_epoches", default=3, type=int)
     parser.add_argument("--irn_learning_rate", default=0.1, type=float)
     parser.add_argument("--irn_weight_decay", default=1e-4, type=float)
@@ -72,6 +74,8 @@ if __name__ == '__main__':
     parser.add_argument("--eval_sem_seg_pass", default=True)
 
     args = parser.parse_args()
+    
+    os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
 
     os.makedirs("sess", exist_ok=True)
     os.makedirs(args.cam_out_dir, exist_ok=True)
@@ -84,6 +88,8 @@ if __name__ == '__main__':
 
     if args.train_cam_pass is True:
         import step.train_cam
+        
+        print("Start Train Cam...")
 
         timer = pyutils.Timer('step.train_cam:')
         step.train_cam.run(args)
@@ -91,41 +97,55 @@ if __name__ == '__main__':
     if args.make_cam_pass is True:
         import step.make_cam
 
+        print("Start Make Cam...")
+
         timer = pyutils.Timer('step.make_cam:')
         step.make_cam.run(args)
 
     if args.eval_cam_pass is True:
         import step.eval_cam
+        
+        print("Start Eval Cam...")
 
         timer = pyutils.Timer('step.eval_cam:')
         step.eval_cam.run(args)
 
     if args.cam_to_ir_label_pass is True:
         import step.cam_to_ir_label
+        
+        print("Start Cam To Ir Label...")
 
         timer = pyutils.Timer('step.cam_to_ir_label:')
         step.cam_to_ir_label.run(args)
 
     if args.train_irn_pass is True:
         import step.train_irn
+        
+        print("Start Train IRN...")
 
         timer = pyutils.Timer('step.train_irn:')
         step.train_irn.run(args)
 
     if args.make_ins_seg_pass is True:
         import step.make_ins_seg_labels
+        
+        print("Start Make Ins Seg...")
 
         timer = pyutils.Timer('step.make_ins_seg_labels:')
         step.make_ins_seg_labels.run(args)
 
     if args.eval_ins_seg_pass is True:
         import step.eval_ins_seg
+        
+        print("Start Eval Ins Seg...")
 
         timer = pyutils.Timer('step.eval_ins_seg:')
         step.eval_ins_seg.run(args)
 
     if args.make_sem_seg_pass is True:
         import step.make_sem_seg_labels
+        
+        print("Start Make Sem Seg...")
 
         timer = pyutils.Timer('step.make_sem_seg_labels:')
         step.make_sem_seg_labels.run(args)
@@ -133,6 +153,8 @@ if __name__ == '__main__':
     if args.eval_sem_seg_pass is True:
         import step.eval_sem_seg
 
+        print("Start Eval Sem Seg...")
+        
         timer = pyutils.Timer('step.eval_sem_seg:')
         step.eval_sem_seg.run(args)
 
